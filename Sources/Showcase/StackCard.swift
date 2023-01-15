@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct StackCard<MultiMedia>: View where MultiMedia: View {
+struct StackCard<MultiMedia>: View where MultiMedia: View {
     
     @Namespace var namespace: Namespace.ID
     
@@ -25,7 +25,7 @@ public struct StackCard<MultiMedia>: View where MultiMedia: View {
     
     private var multiMedia: () -> MultiMedia
     
-    public init(
+    init(
         _ title: String,
         subTitle: String = "",
         headline: String = "",
@@ -41,7 +41,7 @@ public struct StackCard<MultiMedia>: View where MultiMedia: View {
         self.multiMedia = multiMedia
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             VStack(alignment: .leading) {
                 Text(headline)

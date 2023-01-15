@@ -131,7 +131,7 @@ struct Card_Previews: PreviewProvider {
                     }
                 }
                 .cardStyle(.stack)
-                .frame(width: 200)
+                .frame(height: 320)
                 
                 Card("TITLE", subTitle: "SUBTITLE", headline: "HEADLINE", detail: "DETAILDETAILDETAIL", aspectRatio: 2/3) {
                     AsyncImage(url: url) { image in
@@ -144,7 +144,7 @@ struct Card_Previews: PreviewProvider {
                 }
                 .cardStyle(.overlay)
                 .frame(width: 200)
-                
+
                 Card(url, title: "TITLE")
                 Card(url, title: "TITLE")
                     .cardStyle(.overlay)
