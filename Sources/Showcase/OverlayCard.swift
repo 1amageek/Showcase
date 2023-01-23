@@ -67,8 +67,11 @@ struct OverlayCard<MultiMedia>: View where MultiMedia: View {
                         Text(detail)
                             .font(.footnote)
                             .foregroundColor(.white)
+                            .lineLimit(2)
+                            .fixedSize(horizontal: false, vertical: true)
 
                     }
+                    .padding(EdgeInsets(top: 6, leading: 8, bottom: 6, trailing: 8))
                     .frame(height: 88)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .background(.ultraThinMaterial)

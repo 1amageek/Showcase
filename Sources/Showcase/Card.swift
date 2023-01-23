@@ -120,36 +120,39 @@ struct Card_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            VStack(spacing: 16) {
-                Card("TITLE", subTitle: "SUBTITLE", headline: "HEADLINE", detail: "DETAILDETAILDETAIL", aspectRatio: 3/2) {
-                    AsyncImage(url: url) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        Color.gray
+            ScrollView {
+                VStack(spacing: 16) {
+                    Card("TITLE", subTitle: "SUBTITLE", headline: "HEADLINE", detail: "DETAILDETAILDETAIL", aspectRatio: 3/2) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } placeholder: {
+                            Color.gray
+                        }
                     }
-                }
-                .cardStyle(.stack)
-                .frame(height: 320)
-                
-                Card("TITLE", subTitle: "SUBTITLE", headline: "HEADLINE", detail: "DETAILDETAILDETAIL", aspectRatio: 2/3) {
-                    AsyncImage(url: url) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        Color.gray
+                    .cardStyle(.stack)
+                    .frame(height: 320)
+                    .redacted(reason: .placeholder)
+                    
+                    Card("TITLE", subTitle: "SUBTITLE", headline: "HEADLINE", detail: "DETAILDETAILDETAIL", aspectRatio: 2/3) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } placeholder: {
+                            Color.gray
+                        }
                     }
-                }
-                .cardStyle(.overlay)
-                .frame(width: 200)
-
-                Card(url, title: "TITLE")
-                Card(url, title: "TITLE")
                     .cardStyle(.overlay)
+                    .frame(width: 300)
+
+                    Card(url, title: "TITLE")
+                    Card(url, title: "TITLE")
+                        .cardStyle(.overlay)
+                }
+                .padding()
             }
-            .padding()
         }
         .previewLayout(.sizeThatFits)
     }
